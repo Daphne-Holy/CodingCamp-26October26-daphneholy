@@ -4,169 +4,440 @@
    Requirements 11.1, 11.2 (full theme refined in Task 12.1).
    ========================================================================== */
 
+/* 1. COLOR PALETTE */
+
 :root {
-  /* Light theme palette: light background, high-contrast foreground. */
-  --bg: #ffffff;
-  --fg: #1a1a1a;          /* dark text on white -> ~16.2:1 contrast (>= 4.5:1) */
-  --muted: #555555;       /* secondary text, ~7.5:1 contrast on white */
-  --accent: #2563eb;       /* interactive accent */
-  --border: #d1d5db;
-  --surface: #f9fafb;     /* light surface, no gradients */
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --fg: #1e293b;
+  --muted: #64748b;
 
-  --error: #b91c1c;        /* validation / error text */
-  --warning: #b45309;      /* approaching-limit warning */
-  --overspend: #b91c1c;    /* overspend warning */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #eff6ff;
+
+  --border: #e2e8f0;
+
+  --error: #dc2626;
+  --warning: #d97706;
   --success: #15803d;
+  --overspend: #b91c1c;
 
-  --radius: 6px;
-  --max-width: 960px;
-  --list-max-height: 360px;
+  --radius: 12px;
+  --radius-small: 8px;
+
+  --shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+
+  --max-width: 1000px;
+  --list-max-height: 380px;
 }
+
+/* 2. GENERAL RESET */
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;            /* minimum body font size (Requirement 11.2) */
-  line-height: 1.5;
+  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--fg);
-  background: var(--bg);       /* plain light background, no images or gradients */
+  background: var(--bg);
 }
 
 main {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem;
+  width: min(100% - 32px, var(--max-width));
+  margin: 30px auto;
 }
 
-/* --- Visual hierarchy: >= 3 heading levels, each differing >= 25% --------
-   h1 40px -> h2 28px  : 30% smaller
-   h2 28px -> h3 20px : ~28.6% smaller                                      */
-h1 {
-  font-size: 2.5rem;   /* 40px */
-  margin: 0.5rem 0;
-}
-h2 {
-  font-size: 1.75rem;  /* 28px */
-  margin: 1rem 0 0.5rem;
-}
-h3 {
-  font-size: 1.25rem;  /* 20px */
-  margin: 0.75rem 0 0.25rem;
+/* 3. HEADER */
+
+header {
+  background: var(--surface);
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 header h1 {
   text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin: 0;
+  color: var(--accent);
+  font-weight: 750;
 }
+
+/* 4. SECTION CARDS */
 
 section {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
-}
-
-label {
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-input,
-select,
-button {
-  font: inherit;
-  font-size: 16px;
-  padding: 0.4rem 0.5rem;
+  background: var(--surface);
+  padding: 24px;
+  margin-bottom: 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--fg);
+  box-shadow: var(--shadow);
 }
 
-button {
-  cursor: pointer;
-  background: var(--accent);
-  color: #ffffff;
-  border: none;
-  font-weight: 600;
-}
-button:hover {
-  filter: brightness(1.05);
-}
-
-/* --- Remaining budget + warnings --- */
-#remaining-budget {
-  font-size: 1.5rem;
+h2 {
+  font-size: 1.4rem;
+  margin: 0 0 18px;
   font-weight: 700;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin: 12px 0;
+}
+
+/* 5. BUDGET SUMMARY */
+
+#summary-section {
+  background: var(--accent-light);
+  border-color: #bfdbfe;
+}
+
+#summary-section h2 {
+  color: #1e40af;
+}
+
+#remaining-budget {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--accent);
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+#warning-banner {
+  padding: 10px 12px;
+  border-radius: var(--radius-small);
+  margin-top: 12px;
 }
 
 #warning-banner:empty {
   display: none;
 }
-#warning-banner.approaching { color: var(--warning); font-weight: 600; }
-#warning-banner.overspend   { color: var(--overspend); font-weight: 700; }
-#warning-banner.no-budget    { color: var(--muted); }
 
-/* --- Transaction list (scrollable) --- */
+#warning-banner.approaching {
+  color: var(--warning);
+  background: #fffbeb;
+  font-weight: 600;
+}
+
+#warning-banner.overspend {
+  color: var(--overspend);
+  background: #fef2f2;
+  font-weight: 700;
+}
+
+#warning-banner.no-budget {
+  color: var(--muted);
+  background: #f1f5f9;
+}
+
+/* 6. INPUT FIELDS */
+
+label {
+  display: block;
+  font-weight: 650;
+  margin-bottom: 6px;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+form p {
+  margin: 12px 0;
+}
+
+/* 7. BUTTONS */
+
+button {
+  min-height: 42px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: var(--radius-small);
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 8. CUSTOM CATEGORY */
+
+#custom-category-form {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+#add-category-button {
+  margin-top: 8px;
+}
+
+/* 9. TRANSACTION LIST */
+
 #transaction-list {
   max-height: var(--list-max-height);
   overflow-y: auto;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-small);
   background: var(--surface);
 }
+
 .transaction-row {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  gap: 0.75rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0.75rem;
+  gap: 12px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--border);
 }
+
 .transaction-row:last-child {
   border-bottom: none;
 }
+
+.transaction-row span {
+  overflow-wrap: anywhere;
+}
+
+.transaction-row button {
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 6px 12px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.transaction-row button:hover {
+  background: #fecaca;
+}
+
 .empty-state {
-  padding: 1.5rem;
+  padding: 24px;
   text-align: center;
   color: var(--muted);
 }
 
-/* --- Validation & error messages --- */
-.validation-message:empty {
-  display: none;
+/* 10. SORT CONTROLS */
+
+#sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
 }
-.validation-message {
-  color: var(--error);
-  font-size: 0.875rem;
-  min-height: 1.125rem;
+
+#sort-controls button {
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid #bfdbfe;
 }
+
+#sort-controls button:hover {
+  background: var(--accent-light);
+}
+
+/* 11. CHART */
+
+#chart-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#pie-chart {
+  max-width: 100%;
+  max-height: 400px;
+}
+
+#chart-empty-message {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px;
+}
+
 .error-message {
   color: var(--error);
   font-weight: 600;
 }
+
+/* 12. MONTHLY SUMMARY */
+
+#monthly-summary {
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-small);
+}
+
+#monthly-summary p {
+  margin: 8px 0;
+  font-weight: 550;
+}
+
+/* 13. VALIDATION AND ERROR MESSAGES */
+
+.validation-message:empty {
+  display: none;
+}
+
+.validation-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  margin: 4px 0;
+}
+
+.error-message {
+  color: var(--error);
+}
+
 #error-area:empty {
   display: none;
 }
+
 #error-area {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  border: 1px solid var(--error);
-  border-radius: var(--radius);
+  margin: 16px 0;
+  padding: 14px;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-small);
   background: #fef2f2;
   color: var(--error);
 }
 
-#sort-controls {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+/* 14. RESPONSIVE DESIGN: TABLETS */
+
+@media (max-width: 768px) {
+  main {
+    width: min(100% - 24px, var(--max-width));
+    margin: 20px auto;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .transaction-row {
+    padding: 12px;
+  }
 }
-#sort-controls button {
-  background: var(--surface);
-  color: var(--fg);
-  border: 1px solid var(--border);
+
+/* 15. RESPONSIVE DESIGN: MOBILE PHONES */
+
+@media (max-width: 480px) {
+  main {
+    width: calc(100% - 20px);
+    margin: 12px auto;
+  }
+
+  header {
+    padding: 18px 10px;
+  }
+
+  section {
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
+  #sort-controls {
+    flex-direction: column;
+  }
+
+  #sort-controls button {
+    width: 100%;
+  }
+
+  .transaction-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .transaction-row span {
+    width: 100%;
+  }
+
+  .transaction-row button {
+    width: 100%;
+  }
+
+  button {
+    min-height: 44px;
+  }
+
+  #remaining-budget {
+    font-size: 2rem;
+  }
 }
+
+/* 16. REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+

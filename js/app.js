@@ -924,7 +924,7 @@ function renderBudget() {
 
   const warning = warningState(state);
 
-  warningBanner.textContent = '';
+  warningBanner.textContent = warning;
 
   if (warning === 'no-budget') {
     warningBanner.textContent = 'Please set your monthly budget.';
