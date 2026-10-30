@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Expense & Budget Visualizer - styles.css
+   Single light theme skeleton. No dark-mode toggle.
+   Requirements 11.1, 11.2 (full theme refined in Task 12.1).
+   ========================================================================== */
+
+:root {
+  /* Light theme palette: light background, high-contrast foreground. */
+  --bg: #ffffff;
+  --fg: #1a1a1a;          /* dark text on white -> ~16.2:1 contrast (>= 4.5:1) */
+  --muted: #555555;       /* secondary text, ~7.5:1 contrast on white */
+  --accent: #2563eb;       /* interactive accent */
+  --border: #d1d5db;
+  --surface: #f9fafb;     /* light surface, no gradients */
+
+  --error: #b91c1c;        /* validation / error text */
+  --warning: #b45309;      /* approaching-limit warning */
+  --overspend: #b91c1c;    /* overspend warning */
+  --success: #15803d;
+
+  --radius: 6px;
+  --max-width: 960px;
+  --list-max-height: 360px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;            /* minimum body font size (Requirement 11.2) */
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--bg);       /* plain light background, no images or gradients */
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* --- Visual hierarchy: >= 3 heading levels, each differing >= 25% --------
+   h1 40px -> h2 28px  : 30% smaller
+   h2 28px -> h3 20px : ~28.6% smaller                                      */
+h1 {
+  font-size: 2.5rem;   /* 40px */
+  margin: 0.5rem 0;
+}
+h2 {
+  font-size: 1.75rem;  /* 28px */
+  margin: 1rem 0 0.5rem;
+}
+h3 {
+  font-size: 1.25rem;  /* 20px */
+  margin: 0.75rem 0 0.25rem;
+}
+
+header h1 {
+  text-align: center;
+}
+
+section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+label {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  font-size: 16px;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+button {
+  cursor: pointer;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+}
+button:hover {
+  filter: brightness(1.05);
+}
+
+/* --- Remaining budget + warnings --- */
+#remaining-budget {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#warning-banner:empty {
+  display: none;
+}
+#warning-banner.approaching { color: var(--warning); font-weight: 600; }
+#warning-banner.overspend   { color: var(--overspend); font-weight: 700; }
+#warning-banner.no-budget    { color: var(--muted); }
+
+/* --- Transaction list (scrollable) --- */
+#transaction-list {
+  max-height: var(--list-max-height);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.transaction-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.transaction-row:last-child {
+  border-bottom: none;
+}
+.empty-state {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* --- Validation & error messages --- */
+.validation-message:empty {
+  display: none;
+}
+.validation-message {
+  color: var(--error);
+  font-size: 0.875rem;
+  min-height: 1.125rem;
+}
+.error-message {
+  color: var(--error);
+  font-weight: 600;
+}
+#error-area:empty {
+  display: none;
+}
+#error-area {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--error);
+  border-radius: var(--radius);
+  background: #fef2f2;
+  color: var(--error);
+}
+
+#sort-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#sort-controls button {
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--border);
+}

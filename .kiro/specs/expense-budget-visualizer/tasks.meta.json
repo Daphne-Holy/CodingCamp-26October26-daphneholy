@@ -1,0 +1,193 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create project files, constants, and initial state model": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281146582
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281163238
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793282625687
+      }
+    ],
+    "2.1 Implement validation and category functions": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281146681
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793282640945
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284082210
+      }
+    ],
+    "3. Checkpoint - Ensure validation tests pass": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281146763
+      }
+    ],
+    "4.1 Implement transaction operations": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281146835
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284094765
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284265928
+      }
+    ],
+    "5.1 Implement derived value functions": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281146898
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284273605
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284930143
+      }
+    ],
+    "6. Checkpoint - Ensure Data Layer tests pass": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281146957
+      }
+    ],
+    "7.1 Implement storage adapter": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147028
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284942675
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793285496280
+      }
+    ],
+    "8. Checkpoint - Ensure storage tests pass": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147133
+      }
+    ],
+    "9.1 Implement dispatch and renderAll": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147189
+      },
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793285507219
+      }
+    ],
+    "10.1 Implement InputFormController and TransactionListController": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147243
+      }
+    ],
+    "10.2 Implement BudgetController, SummaryController, and ChartController": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147299
+      }
+    ],
+    "11.1 Implement bootstrap on DOMContentLoaded": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147369
+      }
+    ],
+    "12.1 Complete light theme CSS": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147438
+      }
+    ],
+    "13. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793281147509
+      }
+    ],
+    "1. Set up project structure and test framework": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793282625836
+      }
+    ],
+    "2. Implement Data Layer validation and category functions": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284082291
+      }
+    ],
+    "4. Implement Data Layer transaction operations": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284266003
+      }
+    ],
+    "5. Implement Data Layer derived value functions": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793284930262
+      }
+    ],
+    "7. Implement Storage Adapter (Persistence Layer)": [
+      {
+        "executionId": "390e7c2e-70ae-4e1b-be09-b5f4ce224559",
+        "chatSessionId": "sess_ba5209c4-9e2d-4273-b0dd-8c6a37047ee6",
+        "timestamp": 1793285496398
+      }
+    ]
+  }
+}

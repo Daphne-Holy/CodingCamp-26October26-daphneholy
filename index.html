@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense &amp; Budget Visualizer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Expense &amp; Budget Visualizer</h1>
+  </header>
+
+  <main>
+    <!-- Remaining Budget display (top of interface) + warning banner -->
+    <section id="summary-section" aria-label="Budget summary">
+      <h2>Remaining Budget</h2>
+      <p id="remaining-budget" aria-live="polite">$0.00</p>
+      <div id="warning-banner" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Monthly Budget input -->
+    <section id="budget-section" aria-label="Monthly budget">
+      <h2>Monthly Budget</h2>
+      <label for="budget-input">Set Monthly Budget</label>
+      <input type="number" id="budget-input" min="0.01" max="999999999.99" step="0.01" placeholder="0.00">
+      <p id="budget-message" class="validation-message"></p>
+    </section>
+
+    <!-- Input Form: Item Name, Amount, Category, Add button, Custom Category -->
+    <section id="input-form-section" aria-label="Add transaction">
+      <h2>Add Transaction</h2>
+      <form id="transaction-form">
+        <p>
+          <label for="item-name">Item Name</label>
+          <input type="text" id="item-name" maxlength="100" required>
+        </p>
+        <p><span id="item-name-error" class="validation-message"></span></p>
+
+        <p>
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" min="0.01" max="999999999.99" step="0.01" required>
+        </p>
+        <p><span id="amount-error" class="validation-message"></span></p>
+
+        <p>
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="">Select a Category</option>
+            <option value="Food">Food</option>
+            <option value="Fun">Fun</option>
+            <option value="Transport">Transport</option>
+          </select>
+        </p>
+        <p><span id="category-error" class="validation-message"></span></p>
+
+        <p><button type="submit" id="add-button">Add Transaction</button></p>
+      </form>
+
+      <!-- Custom category add control -->
+      <form id="custom-category-form">
+        <p>
+          <label for="custom-category-input">Add Custom Category</label>
+          <input type="text" id="custom-category-input" maxlength="50">
+          <button type="submit" id="add-category-button">Add Category</button>
+        </p>
+        <p><span id="custom-category-error" class="validation-message"></span></p>
+      </form>
+    </section>
+
+    <!-- Transaction List (scrollable) + sort buttons -->
+    <section id="transaction-list-section" aria-label="Transactions">
+      <h2>Transactions</h2>
+      <div id="sort-controls">
+        <button type="button" id="sort-amount" data-sort="amount">Sort by Amount</button>
+        <button type="button" id="sort-category" data-sort="category">Sort by Category</button>
+      </div>
+      <div id="transaction-list" aria-live="polite" role="list">
+        <!-- rows rendered here; empty-state message when no transactions -->
+      </div>
+    </section>
+
+    <!-- Spending Distribution Pie Chart -->
+    <section id="chart-section" aria-label="Spending distribution">
+      <h2>Spending Distribution</h2>
+      <div id="chart-container">
+        <canvas id="pie-chart" aria-label="Spending distribution pie chart"></canvas>
+        <p id="chart-empty-message">No spending data available.</p>
+        <p id="chart-error-message" class="error-message" hidden></p>
+      </div>
+    </section>
+
+    <!-- Monthly Summary View -->
+    <section id="monthly-summary-section" aria-label="Monthly summary">
+      <h2>Monthly Summary</h2>
+      <div id="monthly-summary">
+        <!-- current-month total + remaining, or "must set a budget" message -->
+      </div>
+    </section>
+
+    <!-- Global error message container -->
+    <div id="error-area" role="alert" aria-live="assertive"></div>
+  </main>
+
+  <!-- Chart.js loaded from a Content Delivery Network.
+       The onerror hook sets a global flag so the app can detect a CDN/load
+       failure and degrade gracefully (Requirement 9.5, 10.3). -->
+  <script>window.chartJsLoadFailed = false;</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"
+          onerror="window.chartJsLoadFailed = true"></script>
+
+  <!-- Application logic (ES module) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

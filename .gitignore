@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# npm
+npm-debug.log*
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
